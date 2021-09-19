@@ -10,32 +10,35 @@ import SwiftUI
 struct BigPill: View {
     @State private var myData = [Int]()
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            ForEach(myData, id:\.self) { oneData in
-                HStack {
-                    Text("\(oneData)")
-                        .font(.footnote)
-                        .lineLimit(2)
-                        .foregroundColor(.white)
-                        .padding(5)
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                    Spacer()
+        NavigationView {
+            VStack {
+                Text("I like turtles")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                
+                ForEach(myData, id:\.self) { oneData in
+                    HStack {
+                        Text("\(oneData)")
+                            .font(.footnote)
+                            .lineLimit(2)
+                            .foregroundColor(.white)
+                            .padding(5)
+                            .background(Color.gray)
+                            .cornerRadius(10)
+                        Spacer()
+                    }
                 }
             }
-        }
-        .padding()
-        .background(Color.blue)
-        .foregroundColor(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-        .padding(.horizontal)
-        .onAppear {
-            for i in 0..<20 {
-                myData.append(i)
+            .padding()
+            .background(Color.yellow)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .padding(.horizontal)
+            .navigationTitle("Fancy Title")
+            .onAppear {
+                for i in 0..<17 {
+                    myData.append(i)
+                }
             }
         }
     }
